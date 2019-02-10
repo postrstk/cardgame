@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'IrinaCTT';
+    src: url('IrinaCTT.woff2') format('woff2'),
+        url('IrinaCTT.woff') format('woff'),
+        url('IrinaCTT.svg#IrinaCTT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
