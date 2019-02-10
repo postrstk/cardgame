@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="turnsOwner" sid="682165987699286" static="0" type="number">0</variable>
+        <variable constant="0" name="HP" sid="624654896067855" static="0" type="number">30</variable>
+        <variable constant="0" name="EnemyHP" sid="640947532091658" static="0" type="number">30</variable>
+        <variable constant="0" name="drow_count" sid="955655557437894" static="0" type="number">3</variable>
+        <event-block sid="268279696934976">
+            <conditions>
+                <condition id="17" name="On tap object" sid="565992682379501" type="Touch">
+                    <param id="0" name="Object">drow</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="827713872819547" type="Function">
+                    <param id="0" name="Name">&quot;drow&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="0" name="Call function" sid="888537750223630" type="Function">
+                    <param id="0" name="Name">&quot;enemy_drow&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="826027763677980">
+            <conditions>
+                <condition id="17" name="On tap object" sid="995188059805765" type="Touch">
+                    <param id="0" name="Object">shuffle</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="757163791791385" type="Function">
+                    <param id="0" name="Name">&quot;shuffle&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="601576069846303">
+            <conditions>
+                <condition id="17" name="On tap object" sid="242952008026631" type="Touch">
+                    <param id="0" name="Object">drop</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="273033776605841" type="Function">
+                    <param id="0" name="Name">&quot;drop&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="770280049704694">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="886771902352401" type="System" />
+            </conditions>
+            <actions>
+                <action id="1" name="Request project file" sid="372431511793046" type="AJAX">
+                    <param id="0" name="Tag">&quot;deck&quot;</param>
+                    <param id="1" name="File">deck.json</param>
+                </action>
+                <action id="1" name="Set size" sid="596583787412115" type="playerGrave">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="1" name="Set size" sid="981549699491409" type="playerHand">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="1" name="Set size" sid="505630419824399" type="enemyGrave">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="1" name="Set size" sid="752512083146660" type="enemyHand">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="109118779074632">
+            <conditions>
+                <condition id="0" name="On completed" sid="513258485549469" type="AJAX">
+                    <param id="0" name="Tag">&quot;deck&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="241659867033811" type="playerDeck">
+                    <param id="0" name="JSON">str(AJAX.LastData)</param>
+                </action>
+                <action id="11" name="Load" sid="222305286502567" type="enemyDeck">
+                    <param id="0" name="JSON">str(AJAX.LastData)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="340485322972307">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="858767764741361" type="card" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="727047837766808" type="card">
+                    <param id="0" name="Instance variable">handX</param>
+                    <param id="1" name="Value">card.X</param>
+                </action>
+                <action id="-10" name="Set value" sid="398665861367259" type="card">
+                    <param id="0" name="Instance variable">handY</param>
+                    <param id="1" name="Value">card.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="948926142976523">
+            <conditions>
+                <condition behavior="DragDrop" id="0" name="Is dragging" sid="341401082218956" type="card" />
+                <condition id="-14" name="Compare variable" sid="636675767961575" type="System">
+                    <param id="0" name="Variable">turnsOwner</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="168256127882028" type="card">
+                    <param id="0" name="X">card.handX</param>
+                    <param id="1" name="Y">card.handY</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="999986005180371">
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" sid="695291402981847" type="card" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="982799150749105">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="368759384266257" type="card">
+                            <param id="0" name="Object">handZone</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="444975811243005" type="card">
+                            <param id="0" name="Instance variable">onTable</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="929420747607455" type="Function">
+                            <param id="0" name="Name">&quot;play_card&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="353512152729923" type="Function">
+                            <param id="0" name="Name">&quot;display_hand&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="703578756485859">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="958849834816660" type="card">
+                            <param id="0" name="Object">handZone</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="540175702128642" type="card">
+                            <param id="0" name="X">card.handX</param>
+                            <param id="1" name="Y">card.handY</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="220863458069455">
+            <conditions>
+                <condition id="0" name="On function" sid="576988863566515" type="Function">
+                    <param id="0" name="Name">&quot;shuffle&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="554723279704172">
+                    <conditions>
+                        <condition id="6" inverted="1" name="Is empty" sid="431700089181002" type="playerDeck" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="201646733253028">
+                            <conditions>
+                                <condition id="-10" name="For" sid="342428032818605" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">playerDeck.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="497975629892400" type="playerGrave">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">playerDeck.At(0)</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action disabled="1" id="9" name="Delete" sid="650992295322520" type="playerDeck">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Axis">0</param>
+                                </action>
+                                <action id="6" name="Pop" sid="586204609149799" type="playerDeck">
+                                    <param id="0" name="Where">1</param>
+                                    <param id="1" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <variable constant="0" name="ind" sid="563940988496818" static="0" type="number">0</variable>
+                <event-block sid="402656519896642">
+                    <conditions>
+                        <condition id="-10" name="For" sid="393365467238729" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">playerGrave.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="841133034015370" type="System">
+                            <param id="0" name="Variable">ind</param>
+                            <param id="1" name="Value">floor(random(playerGrave.Width))</param>
+                        </action>
+                        <action id="5" name="Push" sid="943482197038037" type="playerDeck">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">playerGrave.At(ind)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action id="9" name="Delete" sid="172537433711257" type="playerGrave">
+                            <param id="0" name="Index">ind</param>
+                            <param id="1" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="240472483684380">
+            <conditions>
+                <condition id="0" name="On function" sid="830115834061796" type="Function">
+                    <param id="0" name="Name">&quot;drow&quot;</param>
+                </condition>
+                <condition id="6" inverted="1" name="Is empty" sid="562700631321842" type="playerDeck" />
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="789449727104118" type="playerHand">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Value">playerDeck.At(0)</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="6" name="Pop" sid="374700683099376" type="playerDeck">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Axis">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="365343593617022">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="708484378224202" type="Function">
+                            <param id="0" name="Name">&quot;display_hand&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="211035482134359">
+            <conditions>
+                <condition id="0" name="On function" sid="808363577570355" type="Function">
+                    <param id="0" name="Name">&quot;drop&quot;</param>
+                </condition>
+                <condition id="6" inverted="1" name="Is empty" sid="521110300338289" type="playerHand" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="817377252840394">
+                    <conditions>
+                        <condition id="-10" name="For" sid="797921596427157" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">playerHand.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="248816356020552" type="playerGrave">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">playerHand.At(0)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action disabled="1" id="9" name="Delete" sid="712577061049471" type="playerDeck">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Axis">0</param>
+                        </action>
+                        <action id="6" name="Pop" sid="922884573636464" type="playerHand">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="583247122283817">
+            <conditions>
+                <condition id="0" name="On function" sid="460834943135485" type="Function">
+                    <param id="0" name="Name">&quot;display_hand&quot;</param>
+                </condition>
+                <condition id="6" inverted="1" name="Is empty" sid="260299421946735" type="playerHand" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="938442202400551">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="868832434345674" type="System">
+                            <param id="0" name="Object">card</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="260050103888514">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="830425338905121" type="card">
+                                    <param id="0" name="Instance variable">owner</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="926866316247552" type="card">
+                                    <param id="0" name="Instance variable">onTable</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="832398371770866" type="card" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="894498981876339">
+                    <conditions>
+                        <condition id="-10" name="For" sid="436367975069331" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">playerHand.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="599630299522682" type="System">
+                            <param id="0" name="Object to create">card</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">60 + loopindex*40</param>
+                            <param id="3" name="Y">600</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="740562169352237" type="card">
+                            <param id="0" name="Instance variable">numb</param>
+                            <param id="1" name="Value">playerHand.At(loopindex)</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="226141085403399" type="card">
+                            <param id="0" name="Frame number">card.numb</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="590770135098991" type="card">
+                            <param id="0" name="Instance variable">ind</param>
+                            <param id="1" name="Value">loopindex</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="373880003483388" type="card">
+                            <param id="0" name="Instance variable">owner</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="325603767046903" type="card">
+                            <param id="0" name="Instance variable">onTable</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="187649231768669">
+            <conditions>
+                <condition id="0" name="On function" sid="186241213155106" type="Function">
+                    <param id="0" name="Name">&quot;enemy_display_hand&quot;</param>
+                </condition>
+                <condition id="6" inverted="1" name="Is empty" sid="808151665899050" type="enemyHand" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="967607648471760">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="367561561383012" type="System">
+                            <param id="0" name="Object">card</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="776256904235244">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="798161121001743" type="card">
+                                    <param id="0" name="Instance variable">owner</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="204870310005965" type="card">
+                                    <param id="0" name="Instance variable">onTable</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="225488229113170" type="card" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="489138696027335">
+                    <conditions>
+                        <condition id="-10" name="For" sid="773427736172273" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">enemyHand.Width-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="515678115203890" type="System">
+                            <param id="0" name="Object to create">card</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">60 + loopindex*40</param>
+                            <param id="3" name="Y">100</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="544205890072046" type="card">
+                            <param id="0" name="Instance variable">numb</param>
+                            <param id="1" name="Value">enemyHand.At(loopindex)</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="149418961181927" type="card">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="613887365589769" type="card">
+                            <param id="0" name="Instance variable">ind</param>
+                            <param id="1" name="Value">loopindex</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="383185119351598" type="card">
+                            <param id="0" name="Instance variable">owner</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="DragDrop" id="0" name="Set enabled" sid="753580600443713" type="card">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="829769120652901" type="card">
+                            <param id="0" name="Instance variable">onTable</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="166615492413607">
+            <conditions>
+                <condition id="0" name="On function" sid="991319308679121" type="Function">
+                    <param id="0" name="Name">&quot;enemy_drow&quot;</param>
+                </condition>
+                <condition id="6" inverted="1" name="Is empty" sid="837194962818190" type="enemyDeck" />
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="523102359958383" type="enemyHand">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Value">enemyDeck.At(0)</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="6" name="Pop" sid="534371880303546" type="enemyDeck">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Axis">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="256197017221264">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="229789164671277" type="Function">
+                            <param id="0" name="Name">&quot;enemy_display_hand&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="427273005488597">
+            <conditions>
+                <condition id="0" name="On function" sid="797249012458337" type="Function">
+                    <param id="0" name="Name">&quot;play_card&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="622495133086021">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="752510639140448" type="System">
+                            <param id="0" name="Variable">turnsOwner</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="5" name="Push" sid="630868403741829" type="playerGrave">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">card.numb</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Destroy" sid="446588630045719" type="card" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="817311426133884">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="638485507678027" type="System">
+                                    <param id="0" name="Object">card</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="565661319808569">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="347592176674273" type="card">
+                                            <param id="0" name="Instance variable">owner</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="470070524066752" type="card">
+                                            <param id="0" name="Instance variable">onTable</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="9" name="Delete" sid="506948866954916" type="playerHand">
+                                            <param id="0" name="Index">card.ind</param>
+                                            <param id="1" name="Axis">0</param>
+                                        </action>
+                                        <action id="-4" name="Set position to another object" sid="156230179016029" type="card">
+                                            <param id="0" name="Object">cardplace_player</param>
+                                            <param id="1" name="Image point (optional)">0</param>
+                                        </action>
+                                        <action id="-24" name="Move to top" sid="105896677794605" type="card" />
+                                        <action behavior="DragDrop" id="0" name="Set enabled" sid="632910404903534" type="card">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action disabled="1" id="-24" name="Stop loop" sid="706400998533536" type="System" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="288889649965335">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="349044351854347" type="System">
+                            <param id="0" name="Variable">turnsOwner</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="5" name="Push" sid="912947566346654" type="playerGrave">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">card.numb</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Destroy" sid="494382191062085" type="card" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="632926341324004">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="359047271469609" type="System">
+                                    <param id="0" name="Object">card</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="703629430246607">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="593497946185560" type="card">
+                                            <param id="0" name="Instance variable">owner</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="9" name="Delete" sid="497867447027071" type="enemyHand">
+                                            <param id="0" name="Index">card.ind</param>
+                                            <param id="1" name="Axis">0</param>
+                                        </action>
+                                        <action id="-4" name="Set position to another object" sid="635732972215458" type="card">
+                                            <param id="0" name="Object">cardplace_enemy</param>
+                                            <param id="1" name="Image point (optional)">0</param>
+                                        </action>
+                                        <action id="-24" name="Move to top" sid="924658178696930" type="card" />
+                                        <action id="-24" name="Stop loop" sid="804832449371231" type="System" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="647294097039969">
+            <conditions>
+                <condition id="0" name="On function" sid="312701349538357" type="Function">
+                    <param id="0" name="Name">&quot;enemy_play&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="566045134895923">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="437156887653429" type="System">
+                            <param id="0" name="Object">card</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
