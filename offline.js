@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1549821189,
+	"version": 1550391009,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -18,6 +18,7 @@
 		"images/mad_a-sheet0.png",
 		"images/sprite-sheet0.png",
 		"images/w_desc-sheet0.png",
+		"images/w_desc-sheet1.png",
 		"images/w_tite-sheet0.png",
 		"images/pause-sheet0.png",
 		"images/end_img-sheet0.png",
@@ -25,19 +26,21 @@
 		"images/lvl-sheet0.png",
 		"images/lvl-sheet1.png",
 		"images/logo_dlya_lyubogo_temnogo_fona-sheet0.png",
+		"images/sprite3-sheet0.png",
+		"images/border-sheet0.png",
+		"images/sprite4-sheet0.png",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
 		"icon-128.png",
 		"icon-256.png",
 		"loading-logo.png",
-		"deck.json",
-		"library.json",
-		"cards.json",
-		"demo.html",
 		"irinactt.svg",
 		"irinactt.woff",
 		"irinactt.woff2",
-		"stylesheet.css"
+		"stylesheet.css",
+		"deck.json",
+		"library.json",
+		"cards.json"
 	]
 }
