@@ -1,14 +1,11 @@
 ﻿CACHE MANIFEST
-#1550392491
+#1550613689
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
 offlineClient.js
 images/resourses-sheet0.png
-images/handzone-sheet0.png
-images/s_deck-sheet0.png
 images/s_opencard-sheet0.png
-images/s_grave-sheet0.png
 images/mad_bar-sheet0.png
 images/field_a-sheet0.png
 images/field_a-sheet1.png
@@ -20,14 +17,15 @@ images/w_desc-sheet0.png
 images/w_desc-sheet1.png
 images/w_tite-sheet0.png
 images/pause-sheet0.png
+images/pause-sheet1.png
 images/end_img-sheet0.png
 images/sprite2-sheet0.png
 images/lvl-sheet0.png
 images/lvl-sheet1.png
 images/logo_dlya_lyubogo_temnogo_fona-sheet0.png
-images/sprite3-sheet0.png
 images/border-sheet0.png
-images/sprite4-sheet0.png
+images/w_help-sheet0.png
+images/w_help-sheet1.png
 icon-16.png
 icon-32.png
 icon-114.png
